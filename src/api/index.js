@@ -1,3 +1,4 @@
+import CommandParser from './commandparser'
 import Expression from './expression'
 
 const numerate = (state, value) => {
@@ -24,8 +25,21 @@ export default numerate
 
 const fakeApi = (state, value) => {
 
-    // Parse the entered value as an expression.
-    let expression = new Expression(value);
+    let parser = new CommandParser(value);
+    if (parser.isCommand()) {
+
+        // TODO: Handle command.
+
+    } else if (parser.isComment()) {
+
+        // Returns an object with type 'comment'.
+        return parser.execute();
+
+    } else {
+        // Parse the entered value as an expression.
+        let expression = new Expression(value);
+    }
+
 
     if (value.indexOf('x =') === 0) {
         value = parseFloat(value.substr(3).trim())
