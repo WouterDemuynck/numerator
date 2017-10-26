@@ -9,11 +9,11 @@ const style = {
 }
 
 const Comment = (props) => {
-    const { value } = props
+    const { comment } = props
 
     return (
         <div style={ style }>
-            { value }
+            { comment }
         </div>
     )
 

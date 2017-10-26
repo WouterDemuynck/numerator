@@ -20,7 +20,7 @@ const messageStyle = {
 }
 
 const Expression = (props) => {
-    const { value, error, message } = props
+    const { statement, error, message } = props
 
     const computedStyle = {
         ...style,
@@ -29,7 +29,7 @@ const Expression = (props) => {
 
     return (
         <div style={ computedStyle }>
-            <span style={ expressionStyle }>{ value }</span>
+            <span style={ expressionStyle }>{ statement }</span>
             <span style={ messageStyle }>{ message }</span>
         </div>
     )

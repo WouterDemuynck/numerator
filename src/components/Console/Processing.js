@@ -13,11 +13,11 @@ const messageStyle = {
 }
 
 const Processing = (props) => {
-    const { value, message } = props
+    const { statement, message } = props
 
     return (
         <div style={ style }>
-            <span style={ expressionStyle }>{ value }</span>
+            <span style={ expressionStyle }>{ statement }</span>
             <span style={ messageStyle }>{ message }</span>
         </div>
     )
