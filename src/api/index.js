@@ -119,6 +119,14 @@ const fakeApi = (state, value) => {
         }
     }
 
+    if (value === 'pi') {
+        return {
+            state,
+            type: 'mathml',
+            data: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>&pi;</mi></math>'
+        }
+    }
+
     if (value === 'plot') {
         return {
             state,
