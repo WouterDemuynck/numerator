@@ -1,10 +1,8 @@
 import React from 'react'
 
 const style = {
-    border: `solid 1px rgba(0,0,0,0.12)`,
-    margin: 24,
-    display: 'flex',
-    flexDirection: 'column',
+    backgroundColor: 'rgba(0,0,0,0.04)',
+    padding: 24,
     position: 'absolute',
     left: 0,
     right: 0,

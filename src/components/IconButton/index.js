@@ -1,17 +1,19 @@
 import React from 'react'
 import Icon from '../Icon'
+import { GRID, DOMINANT_COLOR, DISABLED_TEXT } from '../theme'
 
 const style = {
-    padding: 12,
-    margin: 12,
+    // margin: GRID,
     borderRadius: '50%',
-    backgroundColor: '#009688',
-    color: 'rgba(255,255,255,1)',
+    // backgroundColor: '#009688',
+    // color: 'rgba(255,255,255,1)',
+    color: DOMINANT_COLOR,
     lineHeight: 0,
 }
 const disabledStyle = {
-    backgroundColor: 'rgba(0,0,0,0.12)',
-    color: 'rgba(0,0,0,0.42)',
+    // backgroundColor: 'rgba(0,0,0,0.12)',
+    // color: 'rgba(0,0,0,0.42)',
+    color: DISABLED_TEXT,
 }
 
 const hoverStyle = {
@@ -29,7 +31,7 @@ const IconButton = (props) => {
     }
     return (
         <div style={ computedStyle } onClick={ disabled ? undefined : onClick }>
-            <Icon type={ props.type } size={ props.size || 20 } />
+            <Icon type={ props.type } />
         </div>
     )
 }

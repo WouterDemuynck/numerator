@@ -1,19 +1,22 @@
 import React from 'react'
+import AppTitle from '../AppTitle'
 import Info from '../Info'
+import { MAX_WIDTH, FONT_SIZE, FONT_FAMILY, LINE_HEIGHT, PRIMARY_TEXT } from '../theme'
 
 const style = {
-    fontFamily: 'Menlo, Monaco, \'Courier New\', monospace',
-    fontSize: 12,
-    lineHeight: 1.2,
-    color: 'rgba(0,0,0,0.87)',
-    flex: 1,
-    padding: 24,
+    fontFamily: FONT_FAMILY,
+    fontSize: FONT_SIZE,
+    lineHeight: LINE_HEIGHT,
+    color: PRIMARY_TEXT,
+    margin: '0 auto',
+    maxWidth: MAX_WIDTH,
 }
+
 const Console = (props) => {
     const { items } = props
     return (
         <div style={ style }>
-            <Info key='head' text='Numerator version 1' />
+            <AppTitle />
             <Info key='info1' secondary text='Start adding items to your numerator session.' />
             <Info key='info2' secondary text='Type `clear` to start a new one.' />
             {
