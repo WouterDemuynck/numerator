@@ -20,5 +20,15 @@ export default class CommandParser {
                 data: this.value.substring(1)
             }
         }
+        if (this.isCommand()) {
+            return {
+                state: this.state,
+                type: 'command',
+                data: {
+                    name: this.value.substring(1),
+                    args: [],
+                }
+            }
+        }
     }
 }

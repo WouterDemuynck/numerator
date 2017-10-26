@@ -10,7 +10,7 @@ import Expression from './Expression'
 import Processing from './Processing'
 import MathML from './MathML'
 import Graph from './Graph'
-
+import Json from './Json'
 const style = {
     fontFamily: FONT_FAMILY,
     fontSize: FONT_SIZE,
@@ -48,6 +48,8 @@ const Console = (props) => {
                                     return <MathML key={ index } statement={ item.value } markup={ item.data } />
                                 case 'graph':
                                     return <Graph key={ index } statement={ item.value } data={ item.data } />
+                                case 'json':
+                                    return <Json key={ index } label={ item.data.label } json={ item.data.json } />
                                 case 'none':
                                     return null
                                 default:

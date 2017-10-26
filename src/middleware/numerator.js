@@ -1,6 +1,6 @@
 import { ADD_TO_NUMERATOR, calculationPending, calculationStarted, calculationSuccess, calculationFailure } from '../actions'
+import { undo, clearSession } from '../actions'
 import numerate from '../api'
-
 
 const createTask = (config) => {
 
@@ -21,7 +21,6 @@ const createTask = (config) => {
 }
 
 const createQueue = (dispatch, getState) => {
-    let cancelled = false
     let tasks = []
     let promise = Promise.resolve()
 
@@ -39,14 +38,36 @@ const createQueue = (dispatch, getState) => {
                 dispatch(calculationStarted('', value))
                 numerate(getState(), value)
                     .then(({ state, type, data}) => {
-                        if (!cancelled) {
+
+
+                        if (type === 'command') {
+                            switch (data.name) {
+                                case 'clear':
+                                    // Clear all tasks
+                                    tasks = []
+                                    dispatch(clearSession())
+                                    break
+                                case 'undo':
+                                    dispatch(undo())
+                                    break
+                                case 'state':
+                                    // Show state
+                                    dispatch(calculationSuccess('', state, 'json', {
+                                        label: 'state',
+                                        json: { ...state }
+                                    }))
+                                    break
+                                default:
+                                    dispatch(calculationFailure('', 'Unknown command'))
+                                    break
+                            }
+                        } else {
                             dispatch(calculationSuccess('', state, type, data))
                         }
+
                     })
                     .catch((e) => {
-                        if (!cancelled) {
-                            dispatch(calculationFailure('', e.message))
-                        }
+                        dispatch(calculationFailure('', e.message))
                     })
                     .then(() => {
                         // remove the current item
@@ -65,13 +86,7 @@ const createQueue = (dispatch, getState) => {
         }
     }
 
-    const queue = createQueueEntry()
-
-    queue.cancel = () => {
-        cancelled = true
-    }
-
-    return queue
+    return createQueueEntry()
 }
 
 const createNumeratorMiddleware = () => {

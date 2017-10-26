@@ -15,3 +15,10 @@ export const calculationSuccess = (id, state, type, data) => ({ type: CALCULATIO
 
 export const CALCULATION_FAILURE = 'CALCULATION_FAILURE'
 export const calculationFailure = (id, message) => ({ type: CALCULATION_FAILURE, payload: { id, message } })
+
+// COMMANDS
+export const CLEAR_SESSION = 'CLEAR_SESSION'
+export const clearSession = () => ({ type: CLEAR_SESSION })
+
+export const UNDO = 'UNDO'
+export const undo = () => ({ type: UNDO })
