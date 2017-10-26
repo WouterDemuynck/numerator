@@ -32,25 +32,26 @@ const Console = (props) => {
                     <Line key='info2' secondary text='Type `clear` to start a new one.' />
                     <Line key='info3' secondary text={ '\u00A0'} />
                     {
-                        items.map((item) => {
+                        items.map((item, index) => {
                             switch (item.type) {
                                 case 'pending':
+                                    return <Processing key={ index } statement={ item.value } message='Waiting for result' />
                                 case 'calculating':
-                                    return <Processing key={ item.id } statement={ item.value } message={ item.data } />
+                                    return <Processing key={ index } statement={ item.value } message='Calculating' />
                                 case 'comment':
-                                    return <Comment key={ item.id } comment={ item.data } />
+                                    return <Comment key={ index } comment={ item.data } />
                                 case 'error':
-                                    return <Expression error key={ item.id } statement={ item.value } message={ item.data } />
+                                    return <Expression error key={ index } statement={ item.value } message={ item.data } />
                                 case 'result': // TODO: should be 'expression' instead of result
-                                    return <Expression key={ item.id } statement={ item.value } message={ item.data } />
+                                    return <Expression key={ index } statement={ item.value } message={ item.data } />
                                 case 'mathml':
-                                    return <MathML key={ item.id } statement={ item.value } markup={ item.data } />
+                                    return <MathML key={ index } statement={ item.value } markup={ item.data } />
                                 case 'graph':
-                                    return <Graph key={ item.id } statement={ item.value } data={ item.data } />
+                                    return <Graph key={ index } statement={ item.value } data={ item.data } />
                                 case 'none':
                                     return null
                                 default:
-                                    return <Expression key={ item.id } statement={ item.value } message={ `Unknown rendering: ${ item.type }` } />
+                                    return <Expression key={ index } statement={ item.value } message={ `Unknown rendering: ${ item.type }` } />
                             }
                         })
                     }

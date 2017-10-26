@@ -4,7 +4,7 @@ import Expression from './expression'
 const numerate = (state, value) => {
 
     return new Promise((resolve, reject) => {
-        // setTimeout(() => {
+        setTimeout(() => {
             const apiResult = fakeApi(state, value)
 
             if (apiResult.error) {
@@ -16,7 +16,7 @@ const numerate = (state, value) => {
                     data: apiResult.data,
                 })
             }
-        // }, 1)
+        }, 1)
     })
 }
 
