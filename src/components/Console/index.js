@@ -1,6 +1,7 @@
 import React from 'react'
 import AppTitle from '../AppTitle'
 import Info from './Line'
+import ScrollToBottom from '../ScrollToBottom'
 import { GRID, MAX_WIDTH, FONT_SIZE, FONT_FAMILY, LINE_HEIGHT, PRIMARY_TEXT } from '../theme'
 
 const style = {
@@ -10,28 +11,31 @@ const style = {
     color: PRIMARY_TEXT,
     margin: '0 auto',
     maxWidth: MAX_WIDTH,
+    paddingBottom: GRID * 8
 }
 
 const Console = (props) => {
     const { items } = props
     return (
         <div style={ style }>
-            <AppTitle />
-            <Info key='info1' secondary text='Start adding items to your numerator session.' />
-            <Info key='info2' secondary text='Type `clear` to start a new one.' />
-            <Info key='info3' secondary text={ '\u00A0'} />
-            {
-                items.map((item) => {
-                    return (
-                        <div key={ item.id }>
-                            <Info text={ item.value } />
-                            {
-                                React.createElement(selectResultRenderer(item.type), item)
-                            }
-                        </div>
-                    )
-                })
-            }
+            <ScrollToBottom>
+                <AppTitle />
+                <Info key='info1' secondary text='Start adding items to your numerator session.' />
+                <Info key='info2' secondary text='Type `clear` to start a new one.' />
+                <Info key='info3' secondary text={ '\u00A0'} />
+                {
+                    items.map((item) => {
+                        return (
+                            <div key={ item.id }>
+                                <Info text={ item.value } />
+                                {
+                                    React.createElement(selectResultRenderer(item.type), item)
+                                }
+                            </div>
+                        )
+                    })
+                }
+            </ScrollToBottom>
         </div>
     )
 }
