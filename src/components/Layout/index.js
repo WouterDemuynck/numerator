@@ -2,7 +2,7 @@ import React from 'react'
 
 const style = {
     border: `solid 1px rgba(0,0,0,0.12)`,
-    margin: 16,
+    margin: 24,
     display: 'flex',
     flexDirection: 'column',
     position: 'absolute',

@@ -2,8 +2,8 @@ import React from 'react'
 import Icon from '../Icon'
 
 const style = {
-    padding: 8,
-    margin: 8,
+    padding: 12,
+    margin: 12,
     borderRadius: '50%',
     backgroundColor: '#009688',
     color: 'rgba(255,255,255,1)',

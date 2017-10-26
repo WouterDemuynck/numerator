@@ -9,11 +9,11 @@ const numerate = (state, value) => {
             } else {
                 resolve({
                     state: apiResult.state,
-                    type: 'result',
+                    type: apiResult.type,
                     data: apiResult.data,
                 })
             }
-        }, 100)
+        }, 10)
     })
 }
 
@@ -29,6 +29,7 @@ const fakeApi = (state, value) => {
                 ...state,
                 x: value,
             },
+            type: 'result',
             data: 'x set to ' + value
         }
     }
@@ -39,6 +40,7 @@ const fakeApi = (state, value) => {
                 ...state,
                 y: value,
             },
+            type: 'result',
             data: 'y set to ' + value
         }
     }
@@ -64,6 +66,7 @@ const fakeApi = (state, value) => {
         }
         return {
             state,
+            type: 'result',
             data: 'x + y = ' + (state.x + state.y),
         }
     }
@@ -92,13 +95,23 @@ const fakeApi = (state, value) => {
                 ...state,
                 z: state.x + state.y,
             },
+            type: 'result',
             data: 'z set to ' + (state.x + state.y),
+        }
+    }
+
+    if (value === 'plot') {
+        return {
+            state,
+            type: 'graph',
+            data: 'M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z',
         }
     }
 
     if (state.hasOwnProperty(value)) {
         return {
             state,
+            type: 'result',
             data: `${ value } is ${ state[value] }`,
         }
     }

@@ -7,7 +7,7 @@ const style = {
     lineHeight: 1.2,
     color: 'rgba(0,0,0,0.87)',
     flex: 1,
-    padding: 16,
+    padding: 24,
 }
 const Console = (props) => {
     const { items } = props
@@ -46,6 +46,8 @@ const selectResultRenderer = (type) => {
             return CalcuateResult
         case 'none':
             return EmptyResult
+        case 'graph':
+            return GraphResult
         case 'error':
             return ErrorResult
         default: 
@@ -58,7 +60,7 @@ const CalculatingResult = ({ id, value, data }) => {
 }
 
 const PendingResult = ({ id, value, data }) => {
-    return <Info secondary text='Waiting to be calculated ...' />
+    return <Info secondary text='Waiting on previous statement ...' />
 }
 
 const CalcuateResult = ({ id, value, data }) => {
@@ -73,4 +75,13 @@ const EmptyResult = () => null
 
 const ErrorResult = ({ id, value, data }) => {
     return <Info error text={ `Error: ${ data }` } />
+}
+
+const GraphResult = ({ data }) => {
+    // graph
+    const style = {
+        width: 400,
+        height: 400,
+    }
+    return <svg style={ style } viewBox='0 0 24 24'><g><path d={ data } /></g></svg>
 }

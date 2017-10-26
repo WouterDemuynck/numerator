@@ -3,7 +3,7 @@ import React from 'react'
 const style = {
     fontFamily: 'Menlo, Monaco, \'Courier New\', monospace',
     fontSize: 12,
-    padding: 16,
+    padding: 24,
     margin: 0,
     border: 0,
     backgroundColir: 'transparent',

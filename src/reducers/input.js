@@ -1,4 +1,4 @@
-import { CALCULATION_STARTED, CHANGE_INPUT } from '../actions'
+import { CALCULATION_PENDING, CHANGE_INPUT } from '../actions'
 
 const initialState = {
     value: '',
@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
                 ...state,
                 value: action.payload,
             }
-        case CALCULATION_STARTED:
+        case CALCULATION_PENDING:
             return {
                 ...state,
                 value: '',
