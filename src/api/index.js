@@ -108,6 +108,22 @@ const fakeApi = (state, value) => {
         }
     }
 
+    if (value === 'pythagoras') {
+        return {
+            state,
+            type: 'mathml',
+            data: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><msup><mi>&nbsp; a </mi><mn>2</mn></msup><mo> + </mo><msup><mi> b </mi><mn>2</mn></msup><mo> = </mo><msup><mi> c </mi><mn>2</mn></msup></mrow></math>',
+        }
+    }
+
+    if (value === 'matrix') {
+        return {
+            state,
+            type: 'mathml',
+            data: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mrow><mfenced open="(" close=")"><mtable><mtr><mtd><mi>1</mi></mtd><mtd><mi>5</mi></mtd><mtd><mi>3</mi></mtd></mtr><mtr><mtd><mi>8</mi></mtd><mtd><mi>2</mi></mtd><mtd><mi>6</mi></mtd></mtr><mtr><mtd><mi>7</mi></mtd><mtd><mi>9</mi></mtd><mtd><mi>0</mi></mtd></mtr></mtable></mfenced></mrow></math>'
+        }
+    }
+
     if (state.hasOwnProperty(value)) {
         return {
             state,
