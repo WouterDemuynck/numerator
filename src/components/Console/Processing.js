@@ -1,0 +1,27 @@
+import React from 'react'
+import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT, ERROR_COLOR } from '../theme'
+
+const style = {
+    fontSize: FONT_SIZE * 0.85,
+    padding: `0 0 ${ GRID }px 0`,
+}
+const expressionStyle = {
+    color: PRIMARY_TEXT,
+}
+const messageStyle = {
+    color: SECONDARY_TEXT,
+}
+
+const Processing = (props) => {
+    const { value, message } = props
+
+    return (
+        <div style={ style }>
+            <span style={ expressionStyle }>{ value }</span>
+            <span style={ messageStyle }>{ message }</span>
+        </div>
+    )
+
+}
+
+export default Processing

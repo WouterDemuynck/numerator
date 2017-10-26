@@ -4,6 +4,11 @@ import Info from './Line'
 import ScrollToBottom from '../ScrollToBottom'
 import { GRID, MAX_WIDTH, FONT_SIZE, FONT_FAMILY, LINE_HEIGHT, PRIMARY_TEXT } from '../theme'
 
+import Output from '../Output'
+import Comment from './Comment'
+import Expression from './Expression'
+import Processing from './Processing'
+
 const style = {
     fontFamily: FONT_FAMILY,
     fontSize: FONT_SIZE,
@@ -11,7 +16,7 @@ const style = {
     color: PRIMARY_TEXT,
     margin: '0 auto',
     maxWidth: MAX_WIDTH,
-    paddingBottom: GRID * 8
+    paddingBottom: GRID * 10
 }
 
 const Console = (props) => {
@@ -20,21 +25,34 @@ const Console = (props) => {
         <div style={ style }>
             <ScrollToBottom>
                 <AppTitle />
-                <Info key='info1' secondary text='Start adding items to your numerator session.' />
-                <Info key='info2' secondary text='Type `clear` to start a new one.' />
-                <Info key='info3' secondary text={ '\u00A0'} />
-                {
-                    items.map((item) => {
-                        return (
-                            <div key={ item.id }>
-                                <Info text={ item.value } />
-                                {
-                                    React.createElement(selectResultRenderer(item.type), item)
-                                }
-                            </div>
-                        )
-                    })
-                }
+                <Output>
+                    <Info key='info1' secondary text='Start adding items to your numerator session.' />
+                    <Info key='info2' secondary text='Type `clear` to start a new one.' />
+                    <Info key='info3' secondary text={ '\u00A0'} />
+                    {
+                        items.map((item) => {
+                            switch (item.type) {
+                                case 'pending':
+                                case 'calculating':
+                                    return <Processing key={ item.id } value={ item.value } message={ item.data } />
+                                case 'comment':
+                                    return <Comment key={ item.id } value={ item.data } />
+                                case 'error':
+                                    return <Expression error key={ item.id } value={ item.value } message={ item.data } />
+                                case 'result': // TODO: must be expression
+                                    return <Expression key={ item.id } value={ item.value } message={ item.data } />
+                            }
+                            return (
+                                <div key={ item.id }>
+                                    <Info text={ item.value } />
+                                    {
+                                        React.createElement(selectResultRenderer(item.type), item)
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+                </Output>
             </ScrollToBottom>
         </div>
     )

@@ -7,6 +7,7 @@ const style = {
     fontSize: FONT_SIZE * 1.75,
     display: 'flex',
     alignItems: 'center',
+    paddingTop: GRID * 6,
 }
 
 const AppTitle = (props) => {

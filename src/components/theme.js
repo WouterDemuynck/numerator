@@ -11,3 +11,5 @@ export const MAX_WIDTH = 800
 export const FONT_FAMILY = 'Menlo, Monaco, \'Courier New\', monospace'
 export const FONT_SIZE = 14
 export const LINE_HEIGHT = 1.25
+export const ERROR_COLOR = '#F44336'
+export const COMMENT_COLOR = '#61bf10'

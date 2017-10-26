@@ -4,17 +4,17 @@ import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT } from '../theme'
 const style = {
     color: PRIMARY_TEXT,
     fontSize: FONT_SIZE,
-    padding: `${ GRID }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
+    // padding: `${ GRID }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
 }
 const secondaryStyle = {
     fontSize: FONT_SIZE * 0.85,
     color: SECONDARY_TEXT,
-    padding: `${ 0 }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
+    // padding: `${ 0 }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
 }
 const errorStyle = {
     fontSize: FONT_SIZE * 0.85,
     color: '#F44336',
-    padding: `${ 0 }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
+    // padding: `${ 0 }px ${ GRID * 6 }px ${ GRID }px ${ GRID * 6.5 }px`,
 }
 
 const Info = (props) => {

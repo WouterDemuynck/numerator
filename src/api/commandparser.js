@@ -13,7 +13,7 @@ export default class CommandParser {
     }
 
     execute() {
-        if (isComment()) {
+        if (this.isComment()) {
             return {
                 state: this.state,
                 type: 'comment',

@@ -2,7 +2,6 @@ import React from 'react'
 import { APP_BACKGROUND } from '../theme'
 
 const style = {
-    padding: 24,
     position: 'absolute',
     left: 0,
     right: 0,
