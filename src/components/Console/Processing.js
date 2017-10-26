@@ -3,7 +3,7 @@ import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT, ERROR_COLOR } from '../t
 
 const style = {
     fontSize: FONT_SIZE * 0.85,
-    padding: `0 0 ${ GRID }px 0`,
+    padding: `${ GRID * .75 }px 0`,
 }
 const expressionStyle = {
     color: PRIMARY_TEXT,

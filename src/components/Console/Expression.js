@@ -1,10 +1,12 @@
 import React from 'react'
-import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT, ERROR_COLOR } from '../theme'
+import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT, ERROR_COLOR, BORDER } from '../theme'
 
 const style = {
     color: PRIMARY_TEXT,
     fontSize: FONT_SIZE,
-    padding: `0 0 ${ GRID }px 0`,
+    padding: `${ GRID * .75 }px 0`,
+    display: 'flex',
+    justifyContent: 'space-between',
 }
 const errorStyle = {
     color: ERROR_COLOR,

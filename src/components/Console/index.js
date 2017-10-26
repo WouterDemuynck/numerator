@@ -23,9 +23,9 @@ const Console = (props) => {
     const { items } = props
     return (
         <div style={ style }>
-            <ScrollToBottom>
-                <AppTitle />
-                <Output>
+            <AppTitle />
+            <Output>
+                <ScrollToBottom>
                     <Info key='info1' secondary text='Start adding items to your numerator session.' />
                     <Info key='info2' secondary text='Type `clear` to start a new one.' />
                     <Info key='info3' secondary text={ '\u00A0'} />
@@ -39,7 +39,7 @@ const Console = (props) => {
                                     return <Comment key={ item.id } value={ item.data } />
                                 case 'error':
                                     return <Expression error key={ item.id } value={ item.value } message={ item.data } />
-                                case 'result': // TODO: must be expression
+                                case 'result': // TODO: should be 'expression' instead of result
                                     return <Expression key={ item.id } value={ item.value } message={ item.data } />
                             }
                             return (
@@ -52,8 +52,8 @@ const Console = (props) => {
                             )
                         })
                     }
-                </Output>
-            </ScrollToBottom>
+                </ScrollToBottom>
+            </Output>
         </div>
     )
 }

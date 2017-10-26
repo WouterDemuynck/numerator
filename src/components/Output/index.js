@@ -2,7 +2,7 @@ import React from 'react'
 import { GRID } from '../theme'
 
 const style = {
-    paddingLeft: GRID * 6.5,
+    padding: `0 ${ GRID * 6.5 }px`,
 }
 
 const Output = (props) => {

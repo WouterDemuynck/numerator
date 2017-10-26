@@ -5,6 +5,7 @@ export const INPUT_SHADOW = 'rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.2
 export const PRIMARY_TEXT = 'rgba(0,0,0,0.87)'
 export const SECONDARY_TEXT = 'rgba(0,0,0,0.54)'
 export const HINT_TEXT = 'rgba(0,0,0,0.32)'
+export const BORDER = 'rgba(0,0,0,0.07)'
 export const DISABLED_TEXT = 'rgba(0,0,0,0.20)'
 export const GRID = 8
 export const MAX_WIDTH = 800

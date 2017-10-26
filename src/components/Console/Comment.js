@@ -4,7 +4,7 @@ import { FONT_SIZE, GRID, PRIMARY_TEXT, SECONDARY_TEXT, COMMENT_COLOR } from '..
 const style = {
     color: COMMENT_COLOR,
     fontSize: FONT_SIZE * 0.85,
-    padding: `0 0 ${ GRID }px 0`,
+    padding: `${ GRID * .75 }px 0`,
     fontStyle: 'italic',
 }
 
