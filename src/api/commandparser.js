@@ -24,7 +24,7 @@ export default class CommandParser {
                 case 'clear':
                     return {
                         state: {},
-                        type: 'result',
+                        type: 'command',
                         data: 'session cleared.'
                     };
 

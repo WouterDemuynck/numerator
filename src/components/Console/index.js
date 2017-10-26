@@ -10,6 +10,7 @@ import Expression from './Expression'
 import Processing from './Processing'
 import MathML from './MathML'
 import Graph from './Graph'
+import Command from './Command'
 
 const style = {
     fontFamily: FONT_FAMILY,
@@ -34,6 +35,8 @@ const Console = (props) => {
                     {
                         items.map((item, index) => {
                             switch (item.type) {
+                                case 'command':
+                                    return <Command key={ index } statement={ item.value } message={ item.data } />
                                 case 'pending':
                                     return <Processing key={ index } statement={ item.value } message='Waiting for result' />
                                 case 'calculating':
