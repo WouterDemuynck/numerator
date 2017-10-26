@@ -29,7 +29,7 @@ const Console = (props) => {
             <Output>
                 <ScrollToBottom>
                     <Line key='info1' secondary text='Start adding items to your numerator session.' />
-                    <Line key='info2' secondary text='Type `clear` to start a new one.' />
+                    <Line key='info2' secondary text='Type `/clear` to start a new one.' />
                     <Line key='info3' secondary text={ '\u00A0'} />
                     {
                         items.map((item, index) => {
