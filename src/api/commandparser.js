@@ -20,22 +20,6 @@ export default class CommandParser {
                 data: this.value.substring(1)
             };
         } else if (this.isCommand()) {
-            switch (this.value.substring(1)) {
-                case 'clear':
-                    return {
-                        state: {},
-                        type: 'command',
-                        data: 'session cleared.'
-                    };
-
-                default:
-                    return {
-                        state: this.state,
-                        error: 'invalid command.'
-                    }
-            }
-        }
-        if (this.isCommand()) {
             return {
                 state: this.state,
                 type: 'command',
