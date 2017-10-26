@@ -1,3 +1,5 @@
+import Expression from './expression'
+
 const numerate = (state, value) => {
 
     return new Promise((resolve, reject) => {
@@ -21,6 +23,9 @@ export default numerate
 
 
 const fakeApi = (state, value) => {
+
+    // Parse the entered value as an expression.
+    let expression = new Expression(value);
 
     if (value.indexOf('x =') === 0) {
         value = parseFloat(value.substr(3).trim())
