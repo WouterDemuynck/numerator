@@ -3,9 +3,26 @@
   <head>
     <title>Numerator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=MML_CHTML"></script>
   </head>
   <body>
     <div id='root'></div>
     <script src="/static/bundle.js"></script>
+
+    <script>
+
+      // TODO: Get this done in the component.
+      function refresh() {
+        MathJax.Hub.Typeset();
+        window.setTimeout(refresh, 500);
+      }
+      
+      window.setTimeout(refresh, 500);
+
+      // TODO: Wrap this somewhere...
+      MathJax.Hub.Config({
+        showMathMenu: false
+      });
+    </script>
   </body>
 </html>

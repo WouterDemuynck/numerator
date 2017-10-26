@@ -51,6 +51,8 @@ const selectResultRenderer = (type) => {
             return EmptyResult
         case 'graph':
             return GraphResult
+        case 'mathml':
+            return MathMLResult
         case 'error':
             return ErrorResult
         default: 
@@ -87,4 +89,14 @@ const GraphResult = ({ data }) => {
         height: 400,
     }
     return <svg style={ style } viewBox='0 0 24 24'><g><path d={ data } /></g></svg>
+}
+
+const MathMLResult = ({ data }) => {
+    // TODO: Prettier way to render the MathML?
+    const style = {
+        marginTop: 15,
+        marginBottom: 15,
+        fontSize: '1.5em'
+    }
+    return <div style={ style } dangerouslySetInnerHTML={ { __html: data } } />
 }
