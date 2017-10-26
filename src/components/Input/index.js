@@ -13,7 +13,7 @@ const style = {
     flexDirection: 'row',
     alignItems: 'center',
     position: 'fixed',
-    bottom: GRID * 2,
+    bottom: GRID * 3,
     left: 0,
     right: 0,
     maxWidth: MAX_WIDTH,

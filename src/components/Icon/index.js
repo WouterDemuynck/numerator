@@ -3,7 +3,6 @@ import { GRID } from '../theme'
 
 const style = {
     fill: 'currentcolor',
-    transition: 'all 0.15s',
 }
 
 const getIconPath = (type) => {
