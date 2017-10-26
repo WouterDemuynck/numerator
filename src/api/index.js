@@ -28,10 +28,8 @@ const fakeApi = (state, value) => {
     let parser = new CommandParser(state, value);
     if (parser.isCommand()) {
 
-        // TODO: Handle command.
-        // Returns an object with type 'command'.
         return parser.execute();
-        
+
     } else if (parser.isComment()) {
 
         // Returns an object with type 'comment'.
