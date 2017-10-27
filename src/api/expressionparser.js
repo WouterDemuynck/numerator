@@ -1,4 +1,4 @@
-import Tokenizer from './tokenizer'
+import Tokenizer from './Tokenizer'
 
 export default class ExpressionParser {
     constructor() {
@@ -7,8 +7,13 @@ export default class ExpressionParser {
     parse(expression) {
         let tokenizer = new Tokenizer(expression);
 
+        let tokens = [];
         while (tokenizer.moveNext()) {
-            // TODO: Get next token.
+            tokens.push(tokenizer.lastToken);
         }
+
+        return {
+            tokens: tokens
+        };
     }
 }

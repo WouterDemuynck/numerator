@@ -1,5 +1,5 @@
-import CommandParser from './commandparser'
-import Expression from './expression'
+import CommandParser from './CommandParser'
+import Expression from './Expression'
 
 const numerate = (state, value) => {
 
@@ -38,6 +38,8 @@ const fakeApi = (state, value) => {
     } else {
         // Parse the entered value as an expression.
         let expression = new Expression(value);
+
+        console.log(`AST(${value}) => ${expression.toJSON()}`);
     }
 
 
@@ -124,6 +126,14 @@ const fakeApi = (state, value) => {
             state,
             type: 'mathml',
             data: '<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>&pi;</mi></math>'
+        }
+    }
+
+    if (value.trim() === '42') {
+        return {
+            state,
+            type: 'result',
+            data: 'the meaning of life, the universe, and everything.'
         }
     }
 
