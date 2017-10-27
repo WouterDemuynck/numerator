@@ -39,8 +39,8 @@ export default class Tokenizer {
                 }
                 currentValue += current;
                 currentKind = TokenKind.OPERATOR;
-            } else if (current == ' ') {
-
+            } else if (current === ' ' || current === '\t' || current === '\r' || current === '\n') {
+                // Ignore whitespace.
             }
             
             this.position++;
