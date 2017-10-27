@@ -12,9 +12,14 @@ export default class Tokenizer {
 
         let currentKind = TokenKind.UNDEFINED;
         let currentValue = '';
+        let currentStart = -1;
 
         while (this.position < this.expression.length) {
             let current = this.expression[this.position];
+
+            if (currentStart == -1) {
+                currentStart = this.position;
+            }
 
             if (/[A-Za-z0-9]/g.test(current)) {
                 if (currentKind !== TokenKind.IDENTIFIER && currentKind !== TokenKind.UNDEFINED) {
@@ -43,7 +48,7 @@ export default class Tokenizer {
 
         if (currentValue) {
             this._lastToken = {
-                position: (this.position - currentValue.length),
+                position: currentStart,
                 value: currentValue,
                 kind: currentKind
             };
