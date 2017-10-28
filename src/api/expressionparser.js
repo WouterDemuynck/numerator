@@ -9,11 +9,9 @@ export default class ExpressionParser {
 
         let tokens = [];
         while (tokenizer.moveNext()) {
-            tokens.push(tokenizer.lastToken);
+            tokens.push(tokenizer.current);
         }
 
-        return {
-            tokens: tokens
-        };
+        return tokens;
     }
 }

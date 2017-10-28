@@ -39,7 +39,7 @@ const fakeApi = (state, value) => {
         // Parse the entered value as an expression.
         let expression = new Expression(value);
 
-        console.log(`AST(${value}) => ${expression.toJSON()}`);
+        console.log(`'${value}' => ${expression.toJSON()}`);
     }
 
 

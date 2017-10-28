@@ -1,6 +1,7 @@
 export default {
     UNDEFINED : -1,
-    LITERAL : 0,
-    IDENTIFIER : 1,
-    OPERATOR : 2
+    WHITESPACE : 0,
+    LITERAL : 1,
+    IDENTIFIER : 2,
+    OPERATOR : 3
 };
